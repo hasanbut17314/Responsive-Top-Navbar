@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2&family=Dai+Banna+SIL:wght@300&family=Josefin+Sans:wght@300&family=Merriweather:ital,wght@1,700&family=Noto+Serif+Vithkuqi&family=REM:wght@200&family=Roboto+Condensed:wght@300&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+</head>
+<style>
+    body {
+        font-family: 'Noto Serif Vithkuqi', serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        background-color: black;
+        color: white;
+    }
+
+    .menubar {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        list-style: none;
+    }
+
+    .menubar li:last-child {
+        margin-right: 27px;
+    }
+
+    .menubar li a {
+        border: solid transparent;
+        padding: 9px;
+        text-decoration: none;
+        color: white;
+        display: block;
+        transition: all 0.3s ease;
+    }
+
+    .menubar li a:hover {
+        background-color: white;
+        color: black;
+    }
+
+    .logo a {
+        color: red;
+    }
+
+    i {
+        border: solid transparent;
+        padding: 10px;
+    }
+
+    .icon {
+        display: none;
+        cursor: pointer;
+    }
+
+    .icon:hover {
+        background-color: white;
+        color: black;
+    }
+
+    @media screen and (max-width: 500px) {
+        .menubar {
+            display: none;
+            background-color: black;
+            list-style: none;
+            padding: 15px;
+            position: absolute;
+            top: 42px;
+            left: 0;
+            right: 0;
+        }
+
+        .menubar.active {
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        .menubar li a{
+            border-radius: 5px;
+        }
+
+        .icon {
+            display: flex;
+        }
+        .menubar li:last-child {
+        margin-right: 0px;
+    }
+    }
+</style>
+
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <a href="index.html"><i class="fa fa-land-mine-on"></i></a>
+        </div>
+
+        <ul class="menubar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Account</a></li>
+        </ul>
+        <div class="icon">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+    <script>
+        const icon = document.querySelector(".icon");
+        const menubar = document.querySelector(".menubar");
+        function toggle() {
+            menubar.classList.toggle("active");
+        }
+        icon.addEventListener("click", toggle);
+    </script>
+</body>
+
+</html>
